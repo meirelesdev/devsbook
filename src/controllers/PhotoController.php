@@ -5,7 +5,7 @@ namespace src\controllers;
 use \core\Controller;
 use \src\handlers\LoginHandler;
 
-class HomeController extends Controller
+class PhotoController extends Controller
 {
 
     private $loggedUser;
@@ -20,6 +20,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $this->render('home', ['loggedUser' => $this->loggedUser]);
+        // echo "Estamos em photos";
+        $this->render('photo');
     }
 }
