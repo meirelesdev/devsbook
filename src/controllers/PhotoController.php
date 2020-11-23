@@ -2,8 +2,8 @@
 
 namespace src\controllers;
 
-use \core\Controller;
-use \src\handlers\LoginHandler;
+use core\Controller;
+use src\handlers\LoginHandler;
 
 class PhotoController extends Controller
 {

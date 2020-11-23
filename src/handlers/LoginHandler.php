@@ -2,7 +2,7 @@
 
 namespace src\handlers;
 
-use \src\models\User;
+use src\models\User;
 
 class LoginHandler
 {
@@ -24,6 +24,9 @@ class LoginHandler
                 $loggedUser->name = $data['name'];
                 $loggedUser->birthdate = $data['birthdate'];
                 $loggedUser->avatar = $data['avatar'];
+                $loggedUser->cover = $data['cover'];
+                $loggedUser->city = $data['city'];
+                $loggedUser->work = $data['work'];
                 
                 return $loggedUser;
             }

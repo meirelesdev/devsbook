@@ -11,7 +11,15 @@
 
                 <?php $render('feed-editor', ['user' => $loggedUser]);?>
 
-                <?php $render('feed-item', ['user' => $loggedUser]); ?>
+                
+                <?php 
+                foreach($feed as $post){
+                    $render('feed-item', [
+                            'post' => $post,
+                            'loggedUser' => $loggedUser
+                            ]);
+                }                
+                ?>
 
             </div>
             <div class="column side pl-5">

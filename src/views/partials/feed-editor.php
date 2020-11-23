@@ -22,8 +22,8 @@
     
 
     feedSubmit.addEventListener('click', e =>{
-        let value = feedInput.innerHTML
-        console.log("funcionando...")
+        let value = feedInput.innerHTML.trim();
+        
         if(value != '') {
             feedForm.querySelector("input[name=content]").value = value
             feedForm.submit();
