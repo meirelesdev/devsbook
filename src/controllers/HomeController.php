@@ -21,11 +21,13 @@ class HomeController extends Controller
 
     public function index()
     {
-        $posts = PostHandler::getHomeFeed($this->loggedUser->id);
+        $feed = PostHandler::getHomeFeed(
+            $this->loggedUser->id
+        );
 
         $this->render('home', [
                 'loggedUser' => $this->loggedUser,
-                'feed' => $posts
+                'feed' => $feed
             ]);
     }
     public function profile(){

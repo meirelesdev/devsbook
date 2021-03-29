@@ -25,7 +25,7 @@ class LoginController extends Controller
         $pass = filter_input(INPUT_POST, 'password');
 
         if ($email && $pass) {
-     
+                 
             $token = LoginHandler::verifyLogin($email, $pass );
      
             if($token){
@@ -53,6 +53,7 @@ class LoginController extends Controller
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $pass = filter_input(INPUT_POST, 'password');
         $birthdate = filter_input(INPUT_POST, 'birthdate');
+        
 
         if ( $name && $email && $pass && $birthdate ) {
             
@@ -68,16 +69,18 @@ class LoginController extends Controller
                 $_SESSION['flash'] = "Data de Nascimento Inválida.";
                 $this->redirect('/signup');
             }
-
+            phpinfo();
+            exit;
             if ( !LoginHandler::emailExists($email)) {
                 $token = LoginHandler::addUser( $name, $email, $pass, $birthdate);
 
                 $_SESSION['token'] = $token;
+                
                 $this->redirect('/');
             }else{
                 $_SESSION['flash'] = 'E-mail ja Cadastrada.';
             }
-    
+            
         } else {
             $_SESSION['flash'] = 'Erro nos dados.';
             $this->redirect('/signup');

@@ -37,7 +37,7 @@ class LoginHandler
     public static function verifyLogin($email, $pass)
     {
         $user = User::select()->where('email', $email)->one();
-
+        
         if ($user) {
             if (password_verify($pass, $user['password'])) {
                 $token = md5(time() . rand(0, 9999) . time());
@@ -54,7 +54,7 @@ class LoginHandler
 
     public static function emailExists($email)
     {
-        $user = User::select()->where('email', $email)->one();
+        $user = User::select()->where('email', $email)->one();   
         return $user ? true : false;
     }
 

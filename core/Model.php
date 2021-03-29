@@ -16,6 +16,7 @@ class Model {
     public static function _checkH() {
         if(self::$_h == null) {
             $connection = Database::getInstance();
+            
             self::$_h = new Builder('mysql', function($query, $queryString, $queryParameters) use($connection) {
                 $statement = $connection->prepare($queryString);
                 $statement->execute($queryParameters);

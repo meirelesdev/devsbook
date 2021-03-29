@@ -1,13 +1,21 @@
 <?php
 namespace core;
 
+use PDOException;
 use \src\Config;
 
 class Database {
     private static $_pdo;
     public static function getInstance() {
         if(!isset(self::$_pdo)) {
-            self::$_pdo = new \PDO(Config::DB_DRIVER.":dbname=".Config::DB_DATABASE.";host=".Config::DB_HOST, Config::DB_USER, Config::DB_PASS);
+            try{
+
+                self::$_pdo = new \PDO(Config::DB_DRIVER.":host=".Config::DB_HOST.";port=".Config::DB_PORT.";dbname=".Config::DB_DATABASE.", ".Config::DB_USER.", ".Config::DB_PASS);
+            }catch(PDOException $e){
+                echo $e->getMessage();
+                phpinfo();
+                exit;
+            }
         }
         return self::$_pdo;
     }
