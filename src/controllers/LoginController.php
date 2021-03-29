@@ -69,8 +69,7 @@ class LoginController extends Controller
                 $_SESSION['flash'] = "Data de Nascimento Inválida.";
                 $this->redirect('/signup');
             }
-            phpinfo();
-            exit;
+            
             if ( !LoginHandler::emailExists($email)) {
                 $token = LoginHandler::addUser( $name, $email, $pass, $birthdate);
 

@@ -9,7 +9,7 @@ class Config {
     const DB_DATABASE = 'devsbook';
     const DB_PORT = '3306';
     const DB_USER = 'root';
-    const DB_PASS = 'root';
+    const DB_PASS = '';
 
     const ERROR_CONTROLLER = 'ErrorController';
     const DEFAULT_ACTION = 'index';
